@@ -1,0 +1,8 @@
+<div class="card mb-2">
+    <div class="card-body">
+        <p class="online">server component</p>
+        <p>server with id {{serverId}} with status {{serverStatus}}</p>
+        <p [ngStyle]="{backgroundColor: getColor()}"
+        [ngClass]="{online: serverStatus === 'online' }">server with id {{serverId}} with status {{ getServerStatus() }}</p> 
+    </div>
+</div>
