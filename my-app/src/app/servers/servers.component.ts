@@ -13,7 +13,7 @@ export class ServersComponent implements OnInit {
   serverCreated = false;
   serverName="default serverName";
   serverName2="default serverName2"
-  serverName3 = "";
+  serverName3 = "default serverName3";
   servers = ["server 1", "server 2"];
 
   constructor() {
@@ -25,14 +25,14 @@ export class ServersComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCreateServer(){
-    this.serverCreated = !this.serverCreated;
-    this.servers.push(this.serverName3);
-  }
-
   onUpdateServerName(event: Event){
     console.log(event);
     this.serverName = (<HTMLInputElement>event.target).value;
+  }
+
+  onCreateServer(){
+    this.serverCreated = !this.serverCreated;
+    this.servers.push(this.serverName3);
   }
 
 }
