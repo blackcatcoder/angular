@@ -1,0 +1,17 @@
+<p>cockpit works!</p>
+
+<label>server name</label>
+<input type="text" class="form-control" [(ngModel)]="newServerName">
+
+<label>server content</label>
+<!-- <input type="text" class="form-control" [(ngModel)]="newServerContent"> -->
+<input type="text" class="form-control" #serverContentInput>
+
+<button class="btn btn-primary" (click)="onAddServer(serverContentInput)">add server</button>
+<button class="btn btn-primary" (click)="onAddBlueprint(serverContentInput)">add blueprint</button>
+
+<hr>
+<label>age content</label>
+<input type="text" class="form-control" #ageContentInput>
+<button class="btn btn-primary" (click)="onAddAge()">add age</button>
+<p>age: {{age}}</p>
