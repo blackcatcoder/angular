@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 })
 export class AccountComponent implements OnInit {
 
-  @Input() account: {name: string, status: string};
+  @Input() account: { name: string; status: string; };
   @Input() id: number;
   @Output() statusChanged = new EventEmitter<{id: number, newStatus: string}>();
 
