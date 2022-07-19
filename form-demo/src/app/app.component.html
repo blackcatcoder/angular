@@ -1,0 +1,64 @@
+<h1>Reactive Form</h1>
+<app-reactive-form></app-reactive-form>
+
+
+<br>
+<hr>
+<h1>Template Driven Form</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+
+        <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" class="form-control" ngModel name="userName" required="true" #userName="ngModel">
+            <span class="help-block text-danger" *ngIf="!userName.valid && userName.touched">Please enter a valid name</span>
+          </div>
+          <button class="btn btn-default" type="button" (click)="suggestUserName()">Suggest an Username</button>
+
+          <div class="form-group">
+            <label for="email">Mail</label>
+            <input type="email" id="email" class="form-control" name="email" email required="true" ngModel #email="ngModel">
+            <span class="help-block text-danger" *ngIf="!email.valid && email.touched">Please enter a valid email</span>
+          </div>
+        </div>
+        <p *ngIf="!userData.valid && userData.touched" class="text-danger">user data is invalid</p>
+
+        <div class="form-group">
+          <label for="secret">Secret Questions</label>
+          <select id="secret" class="form-control" [ngModel]="defaultQuestion" name="secret">
+            <option value="pet">Your first Pet?</option>
+            <option value="teacher">Your first teacher?</option>
+          </select>
+        </div>
+
+        <div class="form-group mt-2">
+          <label for="questionAnswer">your answer</label>
+          <textarea id="questionAnswer" name="questionAnswer" cols="30" rows="10" [(ngModel)]="answer" class="form-control"></textarea>
+        </div>
+        <p>your reply: {{answer}}</p>
+
+        <div class="form-group mt-2" *ngFor="let gender of genders">
+          <label>
+            <input type="radio" name="gender" ngModel [value]="gender" required/>
+            {{gender}}
+          </label>
+        </div>
+
+        <button class="btn btn-primary mt-2" type="submit" [disabled]="!f.valid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+      <h3>your data</h3>
+      <p>username: {{user.userName}}</p>
+      <p>mail: {{user.email}}</p>
+      <p>secret: {{user.secretQuestion}}</p>
+      <p>answer: {{user.answer}}</p>
+      <p>gender: {{user.gender}}</p>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+
+<div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 border mb-5">
+        <hr>
+        <h5>{{account.name}}</h5>
+        <hr>
+        <p>this account is {{account.status}}</p>
+        <div class="d-flex justify-content-between">
+            <button class="btn btn-outline-primary" (click)="onSetTo('active')">set to active</button>
+            <button class="btn btn-outline-primary" (click)="onSetTo('inactive')">set to inactive</button>
+            <button class="btn btn-outline-primary" (click)="onSetTo('unknow')">set to unknow</button>
+        </div>
+    </div>
+</div>

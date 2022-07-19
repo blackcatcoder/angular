@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AccountsService } from './services/accounts.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [AccountsService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   title = 'my-app';
   name='anhvi';
@@ -15,6 +17,13 @@ export class AppComponent {
   oddNumbers = [1, 3, 5];
   evenNumbers = [2, 4];
   value: number = 10;
+  accounts: {name: string, status: string}[] = [];
+
+  constructor(private accountsService: AccountsService) { }
+
+  ngOnInit(): void {
+      this.accounts = this.accountsService.getAccounts();
+  }
 
   onServerAdded(serverData: {serverName: string, serverContent: string}){
     this.serverElements.push({
@@ -40,6 +49,14 @@ export class AppComponent {
     this.serverElements.splice(0, 1);
   }
 
-  
+  onAccountAdded(newAccount: {name: string, status: string}){
+    //this.accounts.push(newAccount);
+    this.accountsService.addAccount(newAccount.name, newAccount.status);
+  }
+
+  onStatusChanged(updateInfo: {id: number, newStatus: string}){
+    //this.accounts[updateInfo.id].status = updateInfo.newStatus;
+    this.accountsService.updateStatus(updateInfo.id, updateInfo.newStatus);
+  }
   
 }
