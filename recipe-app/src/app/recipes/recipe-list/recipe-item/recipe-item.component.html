@@ -1,1 +1,9 @@
-<p>recipe-item works!</p>
+<a href="#" class="list-group-item">
+    <div>
+        <h4>Recipe Name: {{recipe.name}}</h4>
+        <p>Description: {{recipe.description}}</p>
+    </div>
+    <div>
+        <img [src]="recipe.imagePath" class="img-responsive" alt={{recipe.imagePath}} style="max-height: 80px;"/>
+    </div>
+</a>
