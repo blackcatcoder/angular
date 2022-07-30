@@ -12,11 +12,11 @@
                 <li class="nav-item"><a class="nav-link" href="#" (click)="onSelect('shopping-list')">Shoping List</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" role="button">manage</a>
+                <li class="dropdown dropstart" appDropDown>
+                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" role="button">manage</a>
                     <ul class="dropdown-menu">
-                        <li>save data</li>
-                        <li>fetch data</li>
+                        <li class="dropdown-item">save data</li>
+                        <li class="dropdown-item">fetch data</li>
                     </ul>
                 </li>
             </ul>
