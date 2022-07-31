@@ -1,15 +1,19 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid">
 
-        <a href="#" class="navbar-brand">Logo</a>
+        <a href="#" class="navbar-brand" routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{exact: true}">Logo</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link" href="#" (click)="onSelect('recipe')">Recipes</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" (click)="onSelect('shopping-list')">Shoping List</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/recipes" >Recipes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLinkActive="active" routerLink="/shopping-list">Shoping List</a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown dropstart" appDropDown>

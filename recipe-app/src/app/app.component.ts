@@ -10,12 +10,12 @@ export class AppComponent {
 
   isRecipe: boolean = true;
 
-  routerHandler(feature: {feature: string}){
-    if(feature.feature === 'recipe'){
-      this.isRecipe = true;
-    }else{
-      this.isRecipe = false;
-    }
-  }
+  // routerHandler(feature: {feature: string}){
+  //   if(feature.feature === 'recipe'){
+  //     this.isRecipe = true;
+  //   }else{
+  //     this.isRecipe = false;
+  //   }
+  // }
 
 }

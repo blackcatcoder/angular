@@ -27,15 +27,18 @@ export class EditServerSection11Component implements OnInit, CanComponentDeactiv
    }
 
   ngOnInit() {
-    console.log(this.route.snapshot.queryParams);
-    console.log(this.route.snapshot.fragment);
+    console.log(this.route.snapshot.queryParams); // only at the time component created
+    console.log(this.route.snapshot.fragment); // only at the time component created
+    
     this.route.queryParams.subscribe((queryParams: Params) => {
       this.allowEdit = queryParams['allowEdit'] === '1' ? true : false
     });
     this.route.fragment.subscribe();
+
     // error here
     const id = +this.route.snapshot.params['id'];
     this.server = this.serversService.getServer(id) as { id: number, name: string, status: string };
+
     // subscribe route params to update the id if params changes
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
@@ -47,6 +50,7 @@ export class EditServerSection11Component implements OnInit, CanComponentDeactiv
     this.router.navigate(['../'], {relativeTo: this.route});
   }
 
+  // when user click outside this route render this component it will call this function
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
     if(!this.allowEdit){
       return true;

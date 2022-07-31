@@ -35,12 +35,12 @@ const appRoutes: Routes = [
       {
         path: ':id',
         component: ServerSection11Component,
-        resolve: {server: ServerResolver}
+        resolve: {server: ServerResolver} // support pass object over route, it will call ServerResolver before come to ServerSection11Component
       },
       {
         path: ':id/edit',
         component: EditServerSection11Component,
-        canDeactivate: [CanDeactivateGuard]
+        canDeactivate: [CanDeactivateGuard]  // this help us when user click outside this route and then it will show us alert
       }
     ]
   },

@@ -17,6 +17,7 @@ export class ServerSection11Component implements OnInit {
   ngOnInit() {
 
     // option 1: pass and create data with route
+    // support pass object over route
     this.route.data.subscribe(
       (data: Data) => {
         this.server = data['server'];
@@ -25,8 +26,12 @@ export class ServerSection11Component implements OnInit {
 
     // option 2: pass and create data with angular
     // error here
-    //  const id = +this.route.snapshot.params['id'];
+
+    // the first time
+    //  const id = +this.route.snapshot.params['id']; // + here is convert string to number
     //  this.server = this.serversService.getServer(id) as { id: number, name: string, status: string };
+
+    // any time in the future start at second time
     //  this.route.params.subscribe(
     //   (params: Params) => {
     //     this.server = this.serversService.getServer(+params['id']) as { id: number, name: string, status: string };
@@ -37,7 +42,8 @@ export class ServerSection11Component implements OnInit {
   onEdit(){
     console.log('on edit called');
     //this.router.navigate(['/servers', this.server.id, 'edit']);
-    this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
+    this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'preserve'}); // queryParamsHandling: 'preserve' -> it help keep query param ?allowEdit=1 still on url of the next route
+                                                                                               // in case you have new query param you should add: queryParamsHandling: 'merge'
   }
 
 }
